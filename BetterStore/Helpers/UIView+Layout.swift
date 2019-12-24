@@ -52,7 +52,7 @@ extension UIView {
         }
         
         if let superviewBottomAnchor = superview?.bottomAnchor {
-            bottomAnchor.constraint(equalTo: superviewBottomAnchor, constant: padding.bottom).isActive = true
+            bottomAnchor.constraint(equalTo: superviewBottomAnchor, constant: -padding.bottom).isActive = true
         }
         
         if let superviewRightAnchor = superview?.rightAnchor {
