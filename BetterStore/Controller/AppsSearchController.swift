@@ -12,6 +12,8 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     
     fileprivate let cellId = "id1234"
     
+    fileprivate var appResults = [Result]()
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -35,40 +37,24 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appResults.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchResultCell
-        
-        cell.nameLabel.text = "HERE IS MY APP NAME"
+        let appResult = appResults[indexPath.item]
+        cell.nameLabel.text = appResult.trackName
+        cell.categoryLabel.text = appResult.primaryGenreName
+        cell.ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
         return cell
     }
     
+    // 2 - Extract this function fetchITunesApp() outside of this controller file
+    
     fileprivate func fetchITunesApps() {
-        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            
-            // failure
-            if let err = err {
-                print("Failed to fech apps: ", err)
-                return
-            }
-        
-            // success
-            guard let data = data else { return }
-            
-            do {
-                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                
-                searchResult.results.forEach({ print($0.trackName, $0.primaryGenreName)})
-                
-            } catch let jsonError {
-                print("Failed to decode json: ", jsonError)
-            }
-        }.resume()
+        Service.shared.fetchApps {
+            print("Finished fetching apps from controller")
+        }
     }
     
     
