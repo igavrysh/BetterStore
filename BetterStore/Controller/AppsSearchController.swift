@@ -48,14 +48,13 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         cell.ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
         return cell
     }
-    
-    // 2 - Extract this function fetchITunesApp() outside of this controller file
-    
+
     fileprivate func fetchITunesApps() {
-        Service.shared.fetchApps {
-            print("Finished fetching apps from controller")
+        Service.shared.fetchApps { (results) in
+            self.appResults = results
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
-    
-    
 }
