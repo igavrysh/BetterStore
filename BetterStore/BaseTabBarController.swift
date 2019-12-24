@@ -16,20 +16,25 @@ class BaseTabBarController: UITabBarController {
         view.backgroundColor = .yellow
         let redViewController = UIViewController()
         redViewController.view.backgroundColor = .red
-        redViewController.tabBarController?.title = "RED"
+        redViewController.navigationItem.title = "Apps"
         
-        let yellowViewController = UIViewController()
-        yellowViewController.view.backgroundColor = .yellow
-        yellowViewController.tabBarController?.title = "YELLOW"
+        let redNavController = UINavigationController(rootViewController: redViewController)
+        redNavController.tabBarItem.title = "RED NAV"
+        redNavController.navigationBar.prefersLargeTitles = true
+        redNavController.tabBarItem.image = UIImage(named: "apps")
         
         let blueViewController = UIViewController()
         blueViewController.view.backgroundColor = .blue
-        blueViewController.tabBarController?.title = "BLUE"
+        blueViewController.navigationItem.title = "Search"
+        
+        let blueNavController = UINavigationController(rootViewController: blueViewController)
+        blueNavController.tabBarItem.title = "BLUE NAV"
+        blueNavController.navigationBar.prefersLargeTitles = true
+        blueNavController.tabBarItem.image = UIImage(named: "search")
         
         viewControllers = [
-            redViewController,
-            yellowViewController,
-            blueViewController
+            redNavController,
+            blueNavController
         ]
     }
 }
