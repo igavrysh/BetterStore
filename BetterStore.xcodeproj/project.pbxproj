@@ -19,6 +19,7 @@
 		D58D841023B28187004B730C /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D840F23B28187004B730C /* SearchResultCell.swift */; };
 		D58D841323B29301004B730C /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D841223B29301004B730C /* UIView+Layout.swift */; };
 		D58D841523B2A425004B730C /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D841423B2A425004B730C /* VerticalStackView.swift */; };
+		D58D841823B2B01B004B730C /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D841723B2B01B004B730C /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D58D840F23B28187004B730C /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		D58D841223B29301004B730C /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		D58D841423B2A425004B730C /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		D58D841723B2B01B004B730C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		D58D83D823B26CB7004B730C /* BetterStore */ = {
 			isa = PBXGroup;
 			children = (
+				D58D841623B2B00C004B730C /* Model */,
 				D58D841123B292DE004B730C /* Helpers */,
 				D58D840E23B28166004B730C /* Views */,
 				D58D840B23B27D1B004B730C /* Controller */,
@@ -162,6 +165,14 @@
 				D58D841223B29301004B730C /* UIView+Layout.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D58D841623B2B00C004B730C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D58D841723B2B01B004B730C /* SearchResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D58D83DE23B26CB7004B730C /* ViewController.swift in Sources */,
+				D58D841823B2B01B004B730C /* SearchResult.swift in Sources */,
 				D58D840D23B27D46004B730C /* AppsSearchController.swift in Sources */,
 				D58D840A23B26D2B004B730C /* BaseTabBarController.swift in Sources */,
 				D58D83DA23B26CB7004B730C /* AppDelegate.swift in Sources */,
