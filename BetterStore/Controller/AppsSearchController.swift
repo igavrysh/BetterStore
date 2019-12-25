@@ -50,7 +50,13 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     }
 
     fileprivate func fetchITunesApps() {
-        Service.shared.fetchApps { (results) in
+        Service.shared.fetchApps { (results, error) in
+            
+            if let error = error {
+                print("Failed to fetch apps: ", error)
+                return
+            }
+            
             self.appResults = results
             DispatchQueue.main.async {
                 self.collectionView.reloadData()

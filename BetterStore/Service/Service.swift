@@ -12,7 +12,7 @@ class Service {
     
     static let shared = Service() // singleton
     
-    func fetchApps(completion: @escaping ([Result]) -> ()) {
+    func fetchApps(completion: @escaping ([Result], Error?) -> ()) {
         print("Fetching itunes apps from Service layer")
         
         let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
@@ -23,6 +23,7 @@ class Service {
             // failure
             if let err = err {
                print("Failed to fech apps: ", err)
+                completion([], nil)
                return
             }
 
@@ -33,9 +34,10 @@ class Service {
                 let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
                 print(searchResult)
                 
-                completion(searchResult.results)
+                completion(searchResult.results, nil)
             } catch let jsonError {
                print("Failed to decode json: ", jsonError)
+                completion([], jsonError)
             }
         }.resume()
     }
