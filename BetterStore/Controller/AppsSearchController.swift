@@ -19,9 +19,10 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     
     fileprivate let enterSearchTermLabel: UILabel = {
         let label = UILabel()
-        label.text = "Start your search by entering text above..."
+        label.text = "Start your search..."
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = UIColor(white: 0.4, alpha: 0.5)
         return label
     }()
     
@@ -42,6 +43,8 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         collectionView.addSubview(enterSearchTermLabel)
         enterSearchTermLabel.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))
         
+        enterSearchTermLabel.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+    
         setupSearchBar()
         
         //fetchITunesApps()
@@ -54,23 +57,26 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Search Apps"
     }
+    
+    var timer: Timer?
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
         
-        Service.shared.fetchApps(searchTerm: searchText) { (res, error) in
-            self.appResults = res
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
+        timer?.invalidate()
         
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            Service.shared.fetchApps(searchTerm: searchText) { (res, error) in
+                self.appResults = res
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        })
     }
 
     func updateSearchResults(for searchController: UISearchController) {
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -78,6 +84,7 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        enterSearchTermLabel.isHidden = appResults.count != 0
         return appResults.count
     }
     
