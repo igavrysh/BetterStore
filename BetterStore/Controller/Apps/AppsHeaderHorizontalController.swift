@@ -10,7 +10,7 @@ import UIKit
 
 class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "cellId1"
+    let cellId = "cellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()

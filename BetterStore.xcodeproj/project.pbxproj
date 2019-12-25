@@ -33,6 +33,7 @@
 		D58D842B23B3CE58004B730C /* AppsPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842A23B3CE58004B730C /* AppsPageHeader.swift */; };
 		D58D842D23B3CF7E004B730C /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842C23B3CF7E004B730C /* AppsHeaderHorizontalController.swift */; };
 		D58D842F23B3D29D004B730C /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842E23B3D29D004B730C /* AppsHeaderCell.swift */; };
+		D58D843123B3D6DD004B730C /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D843023B3D6DD004B730C /* AppGroup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		D58D842A23B3CE58004B730C /* AppsPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeader.swift; sourceTree = "<group>"; };
 		D58D842C23B3CF7E004B730C /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		D58D842E23B3D29D004B730C /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
+		D58D843023B3D6DD004B730C /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		E3D5EDB5449C8BCECFA1F0CD /* Pods-BetterStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore.debug.xcconfig"; path = "Target Support Files/Pods-BetterStore/Pods-BetterStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				D58D841723B2B01B004B730C /* SearchResult.swift */,
+				D58D843023B3D6DD004B730C /* AppGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				D58D841323B29301004B730C /* UIView+Layout.swift in Sources */,
 				D58D842923B3C88E004B730C /* Extensions.swift in Sources */,
 				D58D842023B3422D004B730C /* BaseListController.swift in Sources */,
+				D58D843123B3D6DD004B730C /* AppGroup.swift in Sources */,
 				D58D842F23B3D29D004B730C /* AppsHeaderCell.swift in Sources */,
 				D58D83DC23B26CB7004B730C /* SceneDelegate.swift in Sources */,
 				D58D842523B3C24C004B730C /* AppsHorizontalController.swift in Sources */,
