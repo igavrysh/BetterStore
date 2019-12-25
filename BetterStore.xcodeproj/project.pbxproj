@@ -28,6 +28,8 @@
 		D58D842023B3422D004B730C /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D841F23B3422D004B730C /* BaseListController.swift */; };
 		D58D842323B34452004B730C /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842223B34452004B730C /* AppsGroupCell.swift */; };
 		D58D842523B3C24C004B730C /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842423B3C24C004B730C /* AppsHorizontalController.swift */; };
+		D58D842723B3C7E6004B730C /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842623B3C7E6004B730C /* AppRowCell.swift */; };
+		D58D842923B3C88E004B730C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842823B3C88E004B730C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		D58D841F23B3422D004B730C /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		D58D842223B34452004B730C /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
 		D58D842423B3C24C004B730C /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
+		D58D842623B3C7E6004B730C /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
+		D58D842823B3C88E004B730C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E3D5EDB5449C8BCECFA1F0CD /* Pods-BetterStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore.debug.xcconfig"; path = "Target Support Files/Pods-BetterStore/Pods-BetterStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +212,6 @@
 			children = (
 				D58D842123B34443004B730C /* Apps */,
 				D58D840F23B28187004B730C /* SearchResultCell.swift */,
-				D58D841423B2A425004B730C /* VerticalStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,7 +219,9 @@
 		D58D841123B292DE004B730C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D58D841423B2A425004B730C /* VerticalStackView.swift */,
 				D58D841223B29301004B730C /* UIView+Layout.swift */,
+				D58D842823B3C88E004B730C /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				D58D842223B34452004B730C /* AppsGroupCell.swift */,
+				D58D842623B3C7E6004B730C /* AppRowCell.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -503,9 +509,11 @@
 				D58D841523B2A425004B730C /* VerticalStackView.swift in Sources */,
 				D58D841B23B2B460004B730C /* Service.swift in Sources */,
 				D58D841323B29301004B730C /* UIView+Layout.swift in Sources */,
+				D58D842923B3C88E004B730C /* Extensions.swift in Sources */,
 				D58D842023B3422D004B730C /* BaseListController.swift in Sources */,
 				D58D83DC23B26CB7004B730C /* SceneDelegate.swift in Sources */,
 				D58D842523B3C24C004B730C /* AppsHorizontalController.swift in Sources */,
+				D58D842723B3C7E6004B730C /* AppRowCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

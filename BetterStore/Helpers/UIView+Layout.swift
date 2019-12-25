@@ -74,4 +74,14 @@ extension UIView {
             rightAnchor.constraint(equalTo: superviewRightAnchor, constant: -padding.right).isActive = true
         }
     }
+    
+    func constrainWidth(constant: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: constant).isActive = true
+    }
+    
+    func constrainHeight(constant: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: constant).isActive = true
+    }
 }
