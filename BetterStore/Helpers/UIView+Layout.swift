@@ -37,6 +37,21 @@ extension UIView {
             anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: padding.right)
         }
         
+        if size.width != 0 {
+            anchoredConstraints.width = widthAnchor.constraint(equalToConstant: size.width)
+        }
+        
+        if size.height != 0 {
+            anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
+        }
+        
+        [anchoredConstraints.top,
+         anchoredConstraints.leading,
+         anchoredConstraints.bottom,
+         anchoredConstraints.trailing,
+         anchoredConstraints.width,
+         anchoredConstraints.height].forEach{ $0?.isActive = true }
+        
         return anchoredConstraints
     }
     

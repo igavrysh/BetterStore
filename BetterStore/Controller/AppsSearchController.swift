@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class AppsSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchResultsUpdating {
+class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchResultsUpdating {
     
     fileprivate let cellId = "id1234"
     
@@ -25,14 +25,6 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         label.textColor = UIColor(white: 0.4, alpha: 0.5)
         return label
     }()
-    
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
