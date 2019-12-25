@@ -10,6 +10,30 @@ import UIKit
 
 class SearchResultCell: UICollectionViewCell {
     
+    var appResult: Result! {
+        didSet {
+            nameLabel.text = appResult.trackName
+            categoryLabel.text = appResult.primaryGenreName
+            ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
+
+            let url = URL(string: appResult.artworkUrl100)
+            appIconImageView.sd_setImage(with: url)
+
+            if (appResult.screenshotUrls.count > 0) {
+               screenshot1ImageView.sd_setImage(with: URL(string: appResult.screenshotUrls[0]))
+            }
+
+            if (appResult.screenshotUrls.count > 1) {
+               screenshot2ImageView.sd_setImage(with: URL(string: appResult.screenshotUrls[1]))
+            }
+
+            if (appResult.screenshotUrls.count > 2) {
+               screenshot3ImageView.sd_setImage(with: URL(string: appResult.screenshotUrls[2]))
+
+            }
+        }
+    }
+    
     let appIconImageView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .red
