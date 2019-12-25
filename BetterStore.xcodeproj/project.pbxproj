@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03FB7FD75A080EA12F4E8FE8 /* Pods_BetterStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2249BB6C7CE8116689E06E3F /* Pods_BetterStoreTests.framework */; };
+		2CEF084BE24C46E132166A95 /* Pods_BetterStore_BetterStoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB695EC1291D2B621E1EFD28 /* Pods_BetterStore_BetterStoreUITests.framework */; };
+		A3ABA4F042489AB5F0032826 /* Pods_BetterStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5A0E31E3B140883DCCD08B /* Pods_BetterStore.framework */; };
 		D58D83DA23B26CB7004B730C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D83D923B26CB7004B730C /* AppDelegate.swift */; };
 		D58D83DC23B26CB7004B730C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D83DB23B26CB7004B730C /* SceneDelegate.swift */; };
 		D58D83DE23B26CB7004B730C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D83DD23B26CB7004B730C /* ViewController.swift */; };
@@ -41,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2249BB6C7CE8116689E06E3F /* Pods_BetterStoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterStoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D5A0E31E3B140883DCCD08B /* Pods_BetterStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D4973D23C06D47D503418DB /* Pods-BetterStoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStoreTests.debug.xcconfig"; path = "Target Support Files/Pods-BetterStoreTests/Pods-BetterStoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5AB97CE63934EA89686B4C88 /* Pods-BetterStore-BetterStoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore-BetterStoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-BetterStore-BetterStoreUITests/Pods-BetterStore-BetterStoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C489D991681416DFD3D6CD8 /* Pods-BetterStoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStoreTests.release.xcconfig"; path = "Target Support Files/Pods-BetterStoreTests/Pods-BetterStoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		612C30D1AFC62A2BC035A302 /* Pods-BetterStore-BetterStoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore-BetterStoreUITests.release.xcconfig"; path = "Target Support Files/Pods-BetterStore-BetterStoreUITests/Pods-BetterStore-BetterStoreUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A765FB8FD4FBF8BA3F3D353E /* Pods-BetterStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore.release.xcconfig"; path = "Target Support Files/Pods-BetterStore/Pods-BetterStore.release.xcconfig"; sourceTree = "<group>"; };
+		CB695EC1291D2B621E1EFD28 /* Pods_BetterStore_BetterStoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterStore_BetterStoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58D83D623B26CB7004B730C /* BetterStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58D83D923B26CB7004B730C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D58D83DB23B26CB7004B730C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +72,7 @@
 		D58D841423B2A425004B730C /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		D58D841723B2B01B004B730C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		D58D841A23B2B460004B730C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		E3D5EDB5449C8BCECFA1F0CD /* Pods-BetterStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore.debug.xcconfig"; path = "Target Support Files/Pods-BetterStore/Pods-BetterStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3ABA4F042489AB5F0032826 /* Pods_BetterStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FB7FD75A080EA12F4E8FE8 /* Pods_BetterStoreTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +96,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEF084BE24C46E132166A95 /* Pods_BetterStore_BetterStoreUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14A350ADB272518A2985C93D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D5A0E31E3B140883DCCD08B /* Pods_BetterStore.framework */,
+				CB695EC1291D2B621E1EFD28 /* Pods_BetterStore_BetterStoreUITests.framework */,
+				2249BB6C7CE8116689E06E3F /* Pods_BetterStoreTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF7F2CB81F584229C652D437 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3D5EDB5449C8BCECFA1F0CD /* Pods-BetterStore.debug.xcconfig */,
+				A765FB8FD4FBF8BA3F3D353E /* Pods-BetterStore.release.xcconfig */,
+				5AB97CE63934EA89686B4C88 /* Pods-BetterStore-BetterStoreUITests.debug.xcconfig */,
+				612C30D1AFC62A2BC035A302 /* Pods-BetterStore-BetterStoreUITests.release.xcconfig */,
+				4D4973D23C06D47D503418DB /* Pods-BetterStoreTests.debug.xcconfig */,
+				5C489D991681416DFD3D6CD8 /* Pods-BetterStoreTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D58D83CD23B26CB7004B730C = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +134,8 @@
 				D58D83EF23B26CB8004B730C /* BetterStoreTests */,
 				D58D83FA23B26CB8004B730C /* BetterStoreUITests */,
 				D58D83D723B26CB7004B730C /* Products */,
+				CF7F2CB81F584229C652D437 /* Pods */,
+				14A350ADB272518A2985C93D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D58D840023B26CB8004B730C /* Build configuration list for PBXNativeTarget "BetterStore" */;
 			buildPhases = (
+				B0DE042BC6C963A48B4EE542 /* [CP] Check Pods Manifest.lock */,
 				D58D83D223B26CB7004B730C /* Sources */,
 				D58D83D323B26CB7004B730C /* Frameworks */,
 				D58D83D423B26CB7004B730C /* Resources */,
+				1DC4643DA7467462BBCA12BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,6 +253,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D58D840323B26CB8004B730C /* Build configuration list for PBXNativeTarget "BetterStoreTests" */;
 			buildPhases = (
+				2E2E1862A5DCCA413D065C90 /* [CP] Check Pods Manifest.lock */,
 				D58D83E823B26CB8004B730C /* Sources */,
 				D58D83E923B26CB8004B730C /* Frameworks */,
 				D58D83EA23B26CB8004B730C /* Resources */,
@@ -228,9 +272,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D58D840623B26CB8004B730C /* Build configuration list for PBXNativeTarget "BetterStoreUITests" */;
 			buildPhases = (
+				0ECFF03195C817D8077428BF /* [CP] Check Pods Manifest.lock */,
 				D58D83F323B26CB8004B730C /* Sources */,
 				D58D83F423B26CB8004B730C /* Frameworks */,
 				D58D83F523B26CB8004B730C /* Resources */,
+				B67134F9F61FCBE7AD5E88EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,6 +356,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0ECFF03195C817D8077428BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterStore-BetterStoreUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DC4643DA7467462BBCA12BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BetterStore/Pods-BetterStore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BetterStore/Pods-BetterStore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BetterStore/Pods-BetterStore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E2E1862A5DCCA413D065C90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterStoreTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0DE042BC6C963A48B4EE542 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterStore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B67134F9F61FCBE7AD5E88EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BetterStore-BetterStoreUITests/Pods-BetterStore-BetterStoreUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BetterStore-BetterStoreUITests/Pods-BetterStore-BetterStoreUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BetterStore-BetterStoreUITests/Pods-BetterStore-BetterStoreUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D58D83D223B26CB7004B730C /* Sources */ = {
@@ -488,6 +637,7 @@
 		};
 		D58D840123B26CB8004B730C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3D5EDB5449C8BCECFA1F0CD /* Pods-BetterStore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -505,6 +655,7 @@
 		};
 		D58D840223B26CB8004B730C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A765FB8FD4FBF8BA3F3D353E /* Pods-BetterStore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,6 +673,7 @@
 		};
 		D58D840423B26CB8004B730C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D4973D23C06D47D503418DB /* Pods-BetterStoreTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -543,6 +695,7 @@
 		};
 		D58D840523B26CB8004B730C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C489D991681416DFD3D6CD8 /* Pods-BetterStoreTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -564,6 +717,7 @@
 		};
 		D58D840723B26CB8004B730C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AB97CE63934EA89686B4C88 /* Pods-BetterStore-BetterStoreUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -583,6 +737,7 @@
 		};
 		D58D840823B26CB8004B730C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 612C30D1AFC62A2BC035A302 /* Pods-BetterStore-BetterStoreUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
