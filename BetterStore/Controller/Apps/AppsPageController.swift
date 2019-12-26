@@ -29,51 +29,66 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     fileprivate func fetchData() {
         print("Fetching new JSON DATA somehow...")
         
+        let dispatchGroup = DispatchGroup()
         
+        var group1: AppGroup?
+        var group2: AppGroup?
+        var group3: AppGroup?
+
+        dispatchGroup.enter()
         Service.shared.fetchGames { (appGroup, err) in
             if let err = err {
                 print("Failed to fetch games: ", err)
+                dispatchGroup.leave()
                 return
             }
             
-            if let group = appGroup {
-                self.groups.append(group)
-            }
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
+            group1 = appGroup
+            dispatchGroup.leave()
         }
     
-        
+        dispatchGroup.enter()
         Service.shared.fetchTopGrossing { (appGroup, err) in
+            
             if let err = err {
                 print("Failed to fetch top grossing: ", err)
+                dispatchGroup.leave()
+
                 return
             }
             
-            if let group = appGroup {
-                self.groups.append(group)
-            }
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
+            group2 = appGroup
+            dispatchGroup.leave()
+
         }
         
+        dispatchGroup.enter()
         Service.shared.fetchAppGroup(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/25/explicit.json") { (appGroup, err) in
+            
             if let err = err {
                 print("Failed to fetch top grossing: ", err)
+                dispatchGroup.leave()
+
                 return
             }
             
-            if let group = appGroup {
+            group3 = appGroup
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("completed your dispatch group tasks...")
+            
+            if let group = group1 {
                 self.groups.append(group)
             }
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+            if let group = group2 {
+                self.groups.append(group)
             }
+            if let group = group3 {
+                self.groups.append(group)
+            }
+            self.collectionView.reloadData()
         }
     }
     
