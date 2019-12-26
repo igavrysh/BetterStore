@@ -30,11 +30,11 @@ extension UIView {
         }
         
         if let bottom = bottom {
-            anchoredConstraints.bottom = bottomAnchor.constraint(equalTo: bottom, constant: padding.bottom)
+            anchoredConstraints.bottom = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
         }
         
         if let trailing = trailing {
-            anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: padding.right)
+            anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
         }
         
         if size.width != 0 {
