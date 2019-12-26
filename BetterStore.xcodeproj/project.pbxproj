@@ -44,6 +44,7 @@
 		D5FE331F23B4C55F00B73716 /* ReviewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE331E23B4C55F00B73716 /* ReviewRowCell.swift */; };
 		D5FE332123B4CA2700B73716 /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE332023B4CA2700B73716 /* ReviewsController.swift */; };
 		D5FE332323B4D1DC00B73716 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE332223B4D1DC00B73716 /* ReviewCell.swift */; };
+		D5FE332623B4D76B00B73716 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE332523B4D76B00B73716 /* Reviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		D5FE331E23B4C55F00B73716 /* ReviewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRowCell.swift; sourceTree = "<group>"; };
 		D5FE332023B4CA2700B73716 /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
 		D5FE332223B4D1DC00B73716 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		D5FE332523B4D76B00B73716 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		E3D5EDB5449C8BCECFA1F0CD /* Pods-BetterStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore.debug.xcconfig"; path = "Target Support Files/Pods-BetterStore/Pods-BetterStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +264,7 @@
 				D58D841723B2B01B004B730C /* SearchResult.swift */,
 				D58D843023B3D6DD004B730C /* AppGroup.swift */,
 				D5FE330D23B450AC00B73716 /* SocialApp.swift */,
+				D5FE332523B4D76B00B73716 /* Reviews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				D58D842923B3C88E004B730C /* Extensions.swift in Sources */,
 				D58D842023B3422D004B730C /* BaseListController.swift in Sources */,
 				D58D843123B3D6DD004B730C /* AppGroup.swift in Sources */,
+				D5FE332623B4D76B00B73716 /* Reviews.swift in Sources */,
 				D5FE331923B4B44400B73716 /* AppDetailCell.swift in Sources */,
 				D58D842F23B3D29D004B730C /* AppsHeaderCell.swift in Sources */,
 				D5FE331B23B4BD2F00B73716 /* PreviewCell.swift in Sources */,
