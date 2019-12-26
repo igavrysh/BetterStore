@@ -34,6 +34,7 @@
 		D58D842D23B3CF7E004B730C /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842C23B3CF7E004B730C /* AppsHeaderHorizontalController.swift */; };
 		D58D842F23B3D29D004B730C /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D842E23B3D29D004B730C /* AppsHeaderCell.swift */; };
 		D58D843123B3D6DD004B730C /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D843023B3D6DD004B730C /* AppGroup.swift */; };
+		D5FE330E23B450AC00B73716 /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE330D23B450AC00B73716 /* SocialApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		D58D842C23B3CF7E004B730C /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		D58D842E23B3D29D004B730C /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
 		D58D843023B3D6DD004B730C /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		D5FE330D23B450AC00B73716 /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		E3D5EDB5449C8BCECFA1F0CD /* Pods-BetterStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore.debug.xcconfig"; path = "Target Support Files/Pods-BetterStore/Pods-BetterStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 			children = (
 				D58D841723B2B01B004B730C /* SearchResult.swift */,
 				D58D843023B3D6DD004B730C /* AppGroup.swift */,
+				D5FE330D23B450AC00B73716 /* SocialApp.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5FE330E23B450AC00B73716 /* SocialApp.swift in Sources */,
 				D58D83DE23B26CB7004B730C /* ViewController.swift in Sources */,
 				D58D841E23B3411A004B730C /* AppsPageController.swift in Sources */,
 				D58D841823B2B01B004B730C /* SearchResult.swift in Sources */,
