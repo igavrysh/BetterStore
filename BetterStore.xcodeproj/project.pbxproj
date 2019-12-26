@@ -37,6 +37,7 @@
 		D5FE330E23B450AC00B73716 /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE330D23B450AC00B73716 /* SocialApp.swift */; };
 		D5FE331123B47D1300B73716 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE331023B47D1300B73716 /* HorizontalSnappingController.swift */; };
 		D5FE331323B4831100B73716 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE331223B4831100B73716 /* BetterSnappingLayout.swift */; };
+		D5FE331623B4911800B73716 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE331523B4911800B73716 /* AppDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		D5FE330D23B450AC00B73716 /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		D5FE331023B47D1300B73716 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		D5FE331223B4831100B73716 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
+		D5FE331523B4911800B73716 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 		E3D5EDB5449C8BCECFA1F0CD /* Pods-BetterStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterStore.debug.xcconfig"; path = "Target Support Files/Pods-BetterStore/Pods-BetterStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,6 +265,7 @@
 		D58D841C23B3410A004B730C /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				D5FE331423B4910A00B73716 /* Details */,
 				D58D841D23B3411A004B730C /* AppsPageController.swift */,
 				D58D842423B3C24C004B730C /* AppsHorizontalController.swift */,
 				D58D842C23B3CF7E004B730C /* AppsHeaderHorizontalController.swift */,
@@ -287,6 +290,14 @@
 				D58D840C23B27D46004B730C /* AppsSearchController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		D5FE331423B4910A00B73716 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				D5FE331523B4911800B73716 /* AppDetailController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,6 +550,7 @@
 				D5FE331123B47D1300B73716 /* HorizontalSnappingController.swift in Sources */,
 				D5FE331323B4831100B73716 /* BetterSnappingLayout.swift in Sources */,
 				D58D841523B2A425004B730C /* VerticalStackView.swift in Sources */,
+				D5FE331623B4911800B73716 /* AppDetailController.swift in Sources */,
 				D58D841B23B2B460004B730C /* Service.swift in Sources */,
 				D58D842D23B3CF7E004B730C /* AppsHeaderHorizontalController.swift in Sources */,
 				D58D842B23B3CE58004B730C /* AppsPageHeader.swift in Sources */,
