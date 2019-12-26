@@ -54,8 +54,6 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
     var timer: Timer?
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-        
         timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
