@@ -100,7 +100,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         }
         
         dispatchGroup.notify(queue: .main) {
-            print("completed your dispatch group tasks...")
+            // print("completed your dispatch group tasks...")
             
             self.activityIndicatorView.stopAnimating()
             
@@ -141,6 +141,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         cell.horizontalController.collectionView.reloadData()
         cell.horizontalController.didSelectHandler = { [weak self] feedResult in
             let controller = AppDetailController()
+            controller.appId = feedResult.id
             controller.view.backgroundColor = .white
             controller.navigationItem.title = feedResult.name
             self?.navigationController?.pushViewController(controller, animated: true)
