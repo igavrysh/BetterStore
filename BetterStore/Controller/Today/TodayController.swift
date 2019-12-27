@@ -12,9 +12,9 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     var statingFrame: CGRect?
     
-    var redView = UIView()
-    
     fileprivate let cellId = "cellId"
+    
+    var appFullscreenController: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +29,16 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("didSelectItemAtIndexPath")
         
-        self.redView = UIView()
-        redView.backgroundColor = .red
+        let appFullscreenController = AppFullscreenController()
+        let redView = appFullscreenController.view!
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView(recognizer:)))
         redView.addGestureRecognizer(recognizer)
         
         view.addSubview(redView)
-        redView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+        self.appFullscreenController = appFullscreenController
+        
+        addChild(appFullscreenController)
+
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         
         // absolute coordiantes of cell
@@ -44,10 +47,20 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         self.statingFrame = startingFrame
         
         redView.frame = startingFrame
-        redView.layer.cornerRadius = 16
+        redView.layer.cornerRadius = 0
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            self.redView.frame = self.view.frame
+            redView.frame = self.view.frame
+            
+            
+            guard let tabBarController = self.tabBarController else { return }
+            let frame = tabBarController.tabBar.frame
+            let height = frame.size.height
+            let offsetY = height
+            self.tabBarController?.tabBar.frame = tabBarController.tabBar.frame.offsetBy(dx: 0, dy: offsetY)
+            /*
+            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+           */
         }, completion: nil)
     }
     
@@ -55,10 +68,24 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         print("handleRemoveRedView")
         // access startingFrame
         
+        // frames aren't reliable enough for animations
+        
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             recognizer.view?.frame = self.statingFrame ?? .zero
+            recognizer.view?.layer.cornerRadius = 16
+            
+            /*
+            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 0)
+             */
+            guard let tabBarController = self.tabBarController else { return }
+            let frame = tabBarController.tabBar.frame
+            let height = frame.size.height
+            let offsetY = -height
+            self.tabBarController?.tabBar.frame = tabBarController.tabBar.frame.offsetBy(dx: 0, dy: offsetY)
+            
         }, completion: { _ in
             recognizer.view?.removeFromSuperview()
+            self.appFullscreenController.removeFromParent()
         })
     }
     
