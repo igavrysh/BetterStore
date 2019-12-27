@@ -35,7 +35,7 @@ class AppDetailCell: UICollectionViewCell {
         appIconImageView.constrainWidth(constant: 140)
         appIconImageView.constrainHeight(constant: 140)
         
-        priceButton.backgroundColor = .blue
+        priceButton.backgroundColor = .systemBlue
         priceButton.constrainHeight(constant: 32)
         priceButton.layer.cornerRadius = 32 / 2
         priceButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)

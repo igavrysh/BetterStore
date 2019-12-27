@@ -75,6 +75,39 @@ extension UIView {
         }
     }
     
+    func centerInSuperview(size: CGSize = .zero) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superviewCenterXAnchor = superview?.centerXAnchor {
+            centerXAnchor.constraint(equalTo: superviewCenterXAnchor).isActive = true
+        }
+        
+        if let superviewCenterYAnchor = superview?.centerYAnchor {
+            centerYAnchor.constraint(equalTo: superviewCenterYAnchor).isActive = true
+        }
+        
+        if size.width != 0 {
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        }
+        
+        if size.height != 0 {
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
+    }
+    
+    func centerXInSuperview() {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superViewCenterXAnchor = superview?.centerXAnchor {
+            centerXAnchor.constraint(equalTo: superViewCenterXAnchor).isActive = true
+        }
+    }
+    
+    func centerYInSuperview() {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let centerY = superview?.centerYAnchor {
+            centerYAnchor.constraint(equalTo: centerY).isActive = true
+        }
+    }
+    
     func constrainWidth(constant: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: constant).isActive = true
