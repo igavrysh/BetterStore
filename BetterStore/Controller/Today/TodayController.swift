@@ -10,6 +10,10 @@ import UIKit
 
 class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
+    var statingFrame: CGRect?
+    
+    var redView = UIView()
+    
     fileprivate let cellId = "cellId"
     
     override func viewDidLoad() {
@@ -23,7 +27,39 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Animate fullscreen somehow...")
+        print("didSelectItemAtIndexPath")
+        
+        self.redView = UIView()
+        redView.backgroundColor = .red
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView(recognizer:)))
+        redView.addGestureRecognizer(recognizer)
+        
+        view.addSubview(redView)
+        redView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        
+        // absolute coordiantes of cell
+        guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
+        
+        self.statingFrame = startingFrame
+        
+        redView.frame = startingFrame
+        redView.layer.cornerRadius = 16
+        
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+            self.redView.frame = self.view.frame
+        }, completion: nil)
+    }
+    
+    @objc func handleRemoveRedView(recognizer: UITapGestureRecognizer) {
+        print("handleRemoveRedView")
+        // access startingFrame
+        
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+            recognizer.view?.frame = self.statingFrame ?? .zero
+        }, completion: { _ in
+            recognizer.view?.removeFromSuperview()
+        })
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
