@@ -14,7 +14,12 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let cellId = "cellId"
     
-    var appFullscreenController: UIViewController!
+    var appFullscreenController: AppFullscreenController!
+    
+    var topConstraint: NSLayoutConstraint?
+    var leadingConstraint: NSLayoutConstraint?
+    var widthConstraint: NSLayoutConstraint?
+    var heightConstraint: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,23 +50,27 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
         
         self.statingFrame = startingFrame
+        redView.translatesAutoresizingMaskIntoConstraints = false
+        topConstraint = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+        leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        widthConstraint = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+        heightConstraint = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+
+        [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({ $0?.isActive = true })
+        self.view.layoutIfNeeded()
         
-        redView.frame = startingFrame
         redView.layer.cornerRadius = 0
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            redView.frame = self.view.frame
-            
-            
-            guard let tabBarController = self.tabBarController else { return }
-            let frame = tabBarController.tabBar.frame
-            let height = frame.size.height
-            let offsetY = height
-            self.tabBarController?.tabBar.frame = tabBarController.tabBar.frame.offsetBy(dx: 0, dy: offsetY)
-            /*
-            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
-           */
+            self.topConstraint?.constant = 0
+            self.leadingConstraint?.constant = 0
+            self.widthConstraint?.constant = self.view.frame.width
+            self.heightConstraint?.constant = self.view.frame.height
+            // starts animation
+            self.view.layoutIfNeeded()
+           
         }, completion: nil)
+ 
     }
     
     @objc func handleRemoveRedView(recognizer: UITapGestureRecognizer) {
@@ -71,18 +80,19 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         // frames aren't reliable enough for animations
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            recognizer.view?.frame = self.statingFrame ?? .zero
+            self.appFullscreenController.tableView.contentOffset = .zero
+            
             recognizer.view?.layer.cornerRadius = 16
             
-            /*
-            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 0)
-             */
-            guard let tabBarController = self.tabBarController else { return }
-            let frame = tabBarController.tabBar.frame
-            let height = frame.size.height
-            let offsetY = -height
-            self.tabBarController?.tabBar.frame = tabBarController.tabBar.frame.offsetBy(dx: 0, dy: offsetY)
+          
+            guard let startingFrame = self.statingFrame else { return }
             
+            self.topConstraint?.constant = startingFrame.origin.y
+            self.leadingConstraint?.constant = startingFrame.origin.x
+            self.widthConstraint?.constant = startingFrame.width
+            self.heightConstraint?.constant = startingFrame.height
+            
+            self.view.layoutIfNeeded()
         }, completion: { _ in
             recognizer.view?.removeFromSuperview()
             self.appFullscreenController.removeFromParent()
