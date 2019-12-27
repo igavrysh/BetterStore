@@ -52,7 +52,9 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         self.statingFrame = startingFrame
         redView.translatesAutoresizingMaskIntoConstraints = false
         topConstraint = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
-        leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        leadingConstraint = redView.leadingAnchor.constraint(
+          equalTo: view.leadingAnchor,
+          constant: startingFrame.origin.x)
         widthConstraint = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
         heightConstraint = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
 
@@ -61,15 +63,21 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         redView.layer.cornerRadius = 0
         
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+        UIView.animate(
+          withDuration: 0.7,
+          delay: 0,
+          usingSpringWithDamping: 0.7,
+          initialSpringVelocity: 0.7,
+          options: .curveEaseOut,
+          animations: {
             self.topConstraint?.constant = 0
             self.leadingConstraint?.constant = 0
             self.widthConstraint?.constant = self.view.frame.width
             self.heightConstraint?.constant = self.view.frame.height
             // starts animation
             self.view.layoutIfNeeded()
-           
-        }, completion: nil)
+          },
+          completion: nil)
  
     }
     
@@ -79,7 +87,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         // frames aren't reliable enough for animations
         
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+        UIView.animate(
+          withDuration: 0.7,
+          delay: 0,
+          usingSpringWithDamping: 0.7,
+          initialSpringVelocity: 0.7,
+          options: .curveEaseOut,
+          animations: {
             self.appFullscreenController.tableView.contentOffset = .zero
             
             recognizer.view?.layer.cornerRadius = 16
@@ -93,30 +107,47 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.heightConstraint?.constant = startingFrame.height
             
             self.view.layoutIfNeeded()
-        }, completion: { _ in
+          },
+          completion: { _ in
             recognizer.view?.removeFromSuperview()
             self.appFullscreenController.removeFromParent()
-        })
+          })
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(
+      _ collectionView: UICollectionView,
+      cellForItemAt
+      indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return .init(width: view.frame.width - 64, height: 450)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         return 32
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         return .init(top: 32, left: 0, bottom: 32, right: 0)
     }
 }

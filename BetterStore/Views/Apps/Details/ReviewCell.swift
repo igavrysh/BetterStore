@@ -27,7 +27,10 @@ class ReviewCell: UICollectionViewCell {
         return stackView
     }()
     
-    let bodyLabel = UILabel(text: "Review boyd\nReview boyd\nReview boyd\n", font: .systemFont(ofSize: 18), numberOfLines: 5)
+    let bodyLabel = UILabel(
+      text: "Review boyd\nReview boyd\nReview boyd\n",
+      font: .systemFont(ofSize: 18),
+      numberOfLines: 5)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,7 +51,12 @@ class ReviewCell: UICollectionViewCell {
         authorLabel.textAlignment = .right
         addSubview(stackView)
 
-        stackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 20, left: 20, bottom: 0, right: 20))
+        stackView.anchor(
+          top: topAnchor,
+          leading: leadingAnchor,
+          bottom: nil,
+          trailing: trailingAnchor,
+          padding: .init(top: 20, left: 20, bottom: 0, right: 20))
     }
     
     required init?(coder: NSCoder) {

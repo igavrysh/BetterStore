@@ -79,25 +79,36 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
         return 3
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    override func collectionView(
+      _ collectionView: UICollectionView,
+      cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         if indexPath.item == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailCellId, for: indexPath) as! AppDetailCell
+            let cell = collectionView.dequeueReusableCell(
+              withReuseIdentifier: detailCellId,
+              for: indexPath) as! AppDetailCell
             cell.app = app
             return cell
         } else if indexPath.item == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: previewCellId, for: indexPath) as! PreviewCell
+            let cell = collectionView.dequeueReusableCell(
+              withReuseIdentifier: previewCellId,
+              for: indexPath) as! PreviewCell
             cell.horizontalController.app = app
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellId, for: indexPath) as! ReviewRowCell
+            let cell = collectionView.dequeueReusableCell(
+              withReuseIdentifier: reviewCellId,
+              for: indexPath) as! ReviewRowCell
             cell.reviewsController.reviews = self.reviews
             return cell
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         var height: CGFloat = 280
         
         if indexPath.item == 0 {
@@ -116,7 +127,11 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
         return .init(width: view.frame.width, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         return .init(top: 0, left: 0, bottom: 16, right: 0)
     }
 }

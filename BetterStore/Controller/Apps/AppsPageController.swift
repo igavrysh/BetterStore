@@ -30,7 +30,10 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         
         collectionView.register(AppsGroupCell.self, forCellWithReuseIdentifier: cellId)
         
-        collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        collectionView.register(
+          AppsPageHeader.self,
+          forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+          withReuseIdentifier: headerId)
         
         view.addSubview(activityIndicatorView)
         activityIndicatorView.fillSuperview()
@@ -75,7 +78,9 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         }
         
         dispatchGroup.enter()
-        Service.shared.fetchAppGroup(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/25/explicit.json") { (appGroup, err) in
+        Service.shared.fetchAppGroup(
+          urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/25/explicit.json"
+        ) { (appGroup, err) in
             
             if let err = err {
                 print("Failed to fetch top grossing: ", err)
@@ -117,14 +122,25 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         }
     }
     
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsPageHeader
+    override func collectionView(
+      _ collectionView: UICollectionView,
+      viewForSupplementaryElementOfKind kind: String,
+      at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(
+          ofKind: kind,
+          withReuseIdentifier: headerId,
+          for: indexPath) as! AppsPageHeader
         header.appHeaderHorizontalController.socialApps = self.socialApps
         header.appHeaderHorizontalController.collectionView.reloadData()
         return header
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      referenceSizeForHeaderInSection section: Int
+    ) -> CGSize {
         return .init(width: view.frame.width, height: 300)
     }
     
@@ -132,7 +148,10 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         return groups.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(
+      _ collectionView: UICollectionView,
+      cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
         
         let appGroup = self.groups[indexPath.item]
@@ -148,11 +167,19 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return CGSize.init(width: view.frame.width, height: 300)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         return .init(top: 16, left: 0, bottom: 0, right: 0)
     }
 }

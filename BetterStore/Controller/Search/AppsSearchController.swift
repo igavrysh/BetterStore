@@ -9,8 +9,12 @@
 import UIKit
 import SDWebImage
 
-class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchResultsUpdating {
-    
+class AppsSearchController:
+  BaseListController,
+  UICollectionViewDelegateFlowLayout,
+  UISearchBarDelegate,
+  UISearchResultsUpdating
+{
     fileprivate let cellId = "id1234"
     
     fileprivate var appResults = [Result]()
@@ -69,7 +73,11 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
     func updateSearchResults(for searchController: UISearchController) {
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return CGSize(width: view.frame.width, height: 350)
     }
     
@@ -78,7 +86,10 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         return appResults.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(
+      _ collectionView: UICollectionView,
+      cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchResultCell
         cell.appResult = appResults[indexPath.item]
         return cell

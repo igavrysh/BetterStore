@@ -29,7 +29,10 @@ class ReviewsController: HorizontalSnappingController, UICollectionViewDelegateF
         return reviews?.feed.entry.count ?? 0
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(
+      _ collectionView: UICollectionView
+      , cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ReviewCell
         let entry = reviews?.feed.entry[indexPath.item]
         cell.titleLabel.text = entry?.title.label
@@ -44,11 +47,19 @@ class ReviewsController: HorizontalSnappingController, UICollectionViewDelegateF
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return .init(width: view.frame.width - 48, height: view.frame.height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+      _ collectionView: UICollectionView,
+      layout collectionViewLayout: UICollectionViewLayout,
+      minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         return 16
     }
 }
