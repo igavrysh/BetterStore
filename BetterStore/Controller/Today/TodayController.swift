@@ -26,7 +26,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             title: "Travel on a Budget",
             image: UIImage(named: "holiday")!,
             description: "Find our all you needto know on how to travel without packing everything!",
-            backgroundColor: .yellow)
+            backgroundColor: UIColor.init(red: 248.0 / 255.0, green: 248.0 / 255.0, blue: 185.0 / 255.0, alpha: 1))
     ]
     
     var appFullscreenController: AppFullscreenController!
@@ -57,6 +57,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         view.addSubview(fullscreenView)
         self.appFullscreenController = appFullscreenController
+        self.collectionView.isUserInteractionEnabled = false
         
         addChild(appFullscreenController)
 
@@ -92,6 +93,10 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.heightConstraint?.constant = self.view.frame.height
             // starts animation
             self.view.layoutIfNeeded()
+            
+            guard let cell = appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullscreenHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 48
+            cell.layoutIfNeeded()
           },
           completion: nil)
  
@@ -105,21 +110,25 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         initialSpringVelocity: 0.7,
         options: .curveEaseOut,
         animations: {
-          self.appFullscreenController.tableView.contentOffset = .zero
+            self.appFullscreenController.tableView.contentOffset = .zero
           
-          self.appFullscreenController.view?.layer.cornerRadius = 16
+            self.appFullscreenController.view?.layer.cornerRadius = 16
         
-          guard let startingFrame = self.statingFrame else { return }
-          self.topConstraint?.constant = startingFrame.origin.y
-          self.leadingConstraint?.constant = startingFrame.origin.x
-          self.widthConstraint?.constant = startingFrame.width
-          self.heightConstraint?.constant = startingFrame.height
+            guard let startingFrame = self.statingFrame else { return }
+            self.topConstraint?.constant = startingFrame.origin.y
+            self.leadingConstraint?.constant = startingFrame.origin.x
+            self.widthConstraint?.constant = startingFrame.width
+            self.heightConstraint?.constant = startingFrame.height
           
-          self.view.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+            guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullscreenHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 24
+            cell.layoutIfNeeded()
         },
         completion: { _ in
           self.appFullscreenController.view.removeFromSuperview()
           self.appFullscreenController.removeFromParent()
+            self.collectionView.isUserInteractionEnabled = true
         })
     }
     

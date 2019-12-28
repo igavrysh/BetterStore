@@ -22,6 +22,9 @@ class AppFullscreenController: UITableViewController {
         tableView.allowsSelection = false
         tableView.register(AppFullscreenHeaderCell.self, forCellReuseIdentifier: headerCellId)
         tableView.register(AppFullscreenDescriptionCell.self, forCellReuseIdentifier: descriptionCellId)
+        tableView.contentInsetAdjustmentBehavior = .never
+        let height = UIApplication.shared.statusBarFrame.height
+        tableView.contentInset = .init(top: 0, left: 0, bottom: height, right: 0)
     }
      
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,6 +36,7 @@ class AppFullscreenController: UITableViewController {
             let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellId, for: indexPath) as! AppFullscreenHeaderCell
             headerCell.closeButton.addTarget(self, action: #selector(handleDismiss(_:)), for: .touchUpInside)
             headerCell.todayCell.todayItem = todayItem
+            headerCell.todayCell.layer.cornerRadius = 0
             return headerCell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: descriptionCellId, for: indexPath) as!AppFullscreenDescriptionCell

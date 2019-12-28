@@ -327,8 +327,8 @@
 		D5EA79D623B5A53E00E868E5 /* Today */ = {
 			isa = PBXGroup;
 			children = (
-				D5EA79DB23B65EC800E868E5 /* AppFullscreenDescriptionCell.swift */,
 				D5EA79D723B5A54700E868E5 /* TodayCell.swift */,
+				D5EA79DB23B65EC800E868E5 /* AppFullscreenDescriptionCell.swift */,
 				D5EA79DD23B666E000E868E5 /* AppFullscreenHeaderCell.swift */,
 			);
 			path = Today;
