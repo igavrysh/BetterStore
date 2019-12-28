@@ -10,15 +10,16 @@ import UIKit
 
 class AppFullscreenController: UITableViewController {
     
+    var dismissHandler: (() -> ())?
+    var todayItem: TodayItem?
+    
     fileprivate let headerCellId = "headerCellId"
     fileprivate let descriptionCellId = "descriptionCellId"
     
-    var onCloseButtonTouchHandler: (() -> ())?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         tableView.register(AppFullscreenHeaderCell.self, forCellReuseIdentifier: headerCellId)
         tableView.register(AppFullscreenDescriptionCell.self, forCellReuseIdentifier: descriptionCellId)
     }
@@ -30,7 +31,8 @@ class AppFullscreenController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.item == 0 {
             let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellId, for: indexPath) as! AppFullscreenHeaderCell
-            headerCell.closeButton.addTarget(self, action: #selector(onCloseButtonTouch(_:)), for: .touchUpInside)
+            headerCell.closeButton.addTarget(self, action: #selector(handleDismiss(_:)), for: .touchUpInside)
+            headerCell.todayCell.todayItem = todayItem
             return headerCell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: descriptionCellId, for: indexPath) as!AppFullscreenDescriptionCell
@@ -44,7 +46,9 @@ class AppFullscreenController: UITableViewController {
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
     
-    @objc func onCloseButtonTouch(_ sender: UIButton) {
-        onCloseButtonTouchHandler?()
+    @objc func handleDismiss(_ button: UIButton) {
+        button.isHidden = true
+        tableView.showsVerticalScrollIndicator = false
+        dismissHandler?()
     }
 }
