@@ -35,6 +35,10 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         print("didSelectItemAtIndexPath")
         
         let appFullscreenController = AppFullscreenController()
+        appFullscreenController.onCloseButtonTouchHandler = { [weak self] () -> () in
+            self?.handleFullscreenRemove()
+        }
+        
         let redView = appFullscreenController.view!
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView(recognizer:)))
         redView.addGestureRecognizer(recognizer)
@@ -83,35 +87,34 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     @objc func handleRemoveRedView(recognizer: UITapGestureRecognizer) {
         print("handleRemoveRedView")
-        // access startingFrame
-        
-        // frames aren't reliable enough for animations
-        
+        self.handleFullscreenRemove()
+    }
+    
+    fileprivate func handleFullscreenRemove() {        
         UIView.animate(
-          withDuration: 0.7,
-          delay: 0,
-          usingSpringWithDamping: 0.7,
-          initialSpringVelocity: 0.7,
-          options: .curveEaseOut,
-          animations: {
-            self.appFullscreenController.tableView.contentOffset = .zero
-            
-            recognizer.view?.layer.cornerRadius = 16
-            
+        withDuration: 0.7,
+        delay: 0,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 0.7,
+        options: .curveEaseOut,
+        animations: {
+          self.appFullscreenController.tableView.contentOffset = .zero
           
-            guard let startingFrame = self.statingFrame else { return }
-            
-            self.topConstraint?.constant = startingFrame.origin.y
-            self.leadingConstraint?.constant = startingFrame.origin.x
-            self.widthConstraint?.constant = startingFrame.width
-            self.heightConstraint?.constant = startingFrame.height
-            
-            self.view.layoutIfNeeded()
-          },
-          completion: { _ in
-            recognizer.view?.removeFromSuperview()
-            self.appFullscreenController.removeFromParent()
-          })
+          self.appFullscreenController.view?.layer.cornerRadius = 16
+        
+          guard let startingFrame = self.statingFrame else { return }
+          
+          self.topConstraint?.constant = startingFrame.origin.y
+          self.leadingConstraint?.constant = startingFrame.origin.x
+          self.widthConstraint?.constant = startingFrame.width
+          self.heightConstraint?.constant = startingFrame.height
+          
+          self.view.layoutIfNeeded()
+        },
+        completion: { _ in
+          self.appFullscreenController.view.removeFromSuperview()
+          self.appFullscreenController.removeFromParent()
+        })
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -15,7 +15,6 @@ class AppFullscreenHeaderCell: UITableViewCell {
     let closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "close_button"), for: .normal)
-        
         return button
     }()
     
