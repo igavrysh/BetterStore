@@ -40,8 +40,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         }
         
         let redView = appFullscreenController.view!
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView(recognizer:)))
-        redView.addGestureRecognizer(recognizer)
         
         view.addSubview(redView)
         self.appFullscreenController = appFullscreenController
@@ -85,12 +83,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
  
     }
     
-    @objc func handleRemoveRedView(recognizer: UITapGestureRecognizer) {
-        print("handleRemoveRedView")
-        self.handleFullscreenRemove()
-    }
-    
-    fileprivate func handleFullscreenRemove() {        
+    fileprivate func handleFullscreenRemove() {
         UIView.animate(
         withDuration: 0.7,
         delay: 0,
@@ -103,7 +96,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
           self.appFullscreenController.view?.layer.cornerRadius = 16
         
           guard let startingFrame = self.statingFrame else { return }
-          
           self.topConstraint?.constant = startingFrame.origin.y
           self.leadingConstraint?.constant = startingFrame.origin.x
           self.widthConstraint?.constant = startingFrame.width
