@@ -122,6 +122,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         if items[indexPath.item].cellType == .multiple {
             let fullController = TodayMultipleAppsController(mode: .fullscreen)
             fullController.results = self.items[indexPath.item].apps
+            fullController.modalPresentationStyle = .fullScreen
             present(fullController, animated: true)
             return
         }
