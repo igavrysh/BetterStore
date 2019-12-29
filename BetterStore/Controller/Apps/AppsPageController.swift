@@ -34,7 +34,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
           AppsPageHeader.self,
           forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
           withReuseIdentifier: headerId)
-        
+                
         view.addSubview(activityIndicatorView)
         activityIndicatorView.fillSuperview()
         
