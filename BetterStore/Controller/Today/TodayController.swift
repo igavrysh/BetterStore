@@ -52,6 +52,12 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.superview?.setNeedsLayout()
+    }
+    
     fileprivate func fetchData() {
         let dispatchGroup = DispatchGroup()
         
@@ -121,9 +127,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         if items[indexPath.item].cellType == .multiple {
             let fullController = TodayMultipleAppsController(mode: .fullscreen)
-            fullController.results = self.items[indexPath.item].apps
+            fullController.apps = self.items[indexPath.item].apps
             fullController.modalPresentationStyle = .fullScreen
-            present(fullController, animated: true)
+            let navigationController = BackEnabledNavigationController(rootViewController: fullController)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true)
             return
         }
         
@@ -229,7 +237,28 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             cell.todayItem = items[indexPath.item]
         }
         
+        (cell as? TodayMultipleAppCell)?.multipleAppsController.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMultipleAppsTap(gesture:))))
+        
         return cell
+    }
+    
+    @objc fileprivate func handleMultipleAppsTap(gesture: UIGestureRecognizer) {
+        let tappedView = gesture.view
+        var superview = tappedView?.superview
+        while superview != nil {
+            if let cell = superview as? TodayMultipleAppCell {
+                guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+                let apps = self.items[indexPath.item].apps
+                
+                let fullController = TodayMultipleAppsController(mode: .fullscreen)
+                fullController.apps = apps
+                
+                fullController.modalPresentationStyle = .fullScreen
+                present(fullController, animated: true)
+                return
+            }
+            superview = superview?.superview
+        }
     }
     
     func collectionView(

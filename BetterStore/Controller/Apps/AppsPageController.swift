@@ -162,6 +162,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
             let controller = AppDetailController(appId: feedResult.id)
             controller.view.backgroundColor = .white
             controller.navigationItem.title = feedResult.name
+            self?.navigationController?.modalPresentationStyle = .fullScreen
             self?.navigationController?.pushViewController(controller, animated: true)
         }
         return cell
