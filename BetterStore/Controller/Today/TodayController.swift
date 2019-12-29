@@ -47,7 +47,9 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         collectionView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
-        collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
+        collectionView.register(
+            TodayMultipleAppCell.self,
+            forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
     }
     
     fileprivate func fetchData() {
@@ -102,7 +104,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
                     title: "Travel on a Budget",
                     image: UIImage(named: "holiday")!,
                     description: "Find our all you needto know on how to travel without packing everything!",
-                    backgroundColor: UIColor.init(red: 248.0 / 255.0, green: 248.0 / 255.0, blue: 185.0 / 255.0, alpha: 1),
+                    backgroundColor: UIColor.init(
+                        red: 248.0 / 255.0,
+                        green: 248.0 / 255.0,
+                        blue: 185.0 / 255.0,
+                        alpha: 1),
                     cellType: .single,
                     apps: [])
             ]
@@ -112,6 +118,14 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if items[indexPath.item].cellType == .multiple {
+            let fullController = TodayMultipleAppsController(mode: .fullscreen)
+            fullController.results = self.items[indexPath.item].apps
+            present(fullController, animated: true)
+            return
+        }
+        
         let appFullscreenController = AppFullscreenController()
         appFullscreenController.todayItem = items[indexPath.row]
         appFullscreenController.dismissHandler = { [weak self] () -> () in
