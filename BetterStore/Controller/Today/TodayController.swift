@@ -17,29 +17,15 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     static let cellSize: CGFloat = 500
     
-    let items = [
-        TodayItem.init(
-            category: "LIFE HACK",
-            title: "Utilizing your Time",
-            image: UIImage(named: "garden")!,
-            description: "All the tools and apps you need to intelligently organize your life the right way.",
-            backgroundColor: .white,
-            cellType: .single),
-        TodayItem.init(
-            category: "THE DAILY LIST",
-            title: "Test-Drive These CarPlay Apps",
-            image: UIImage(named: "garden")!,
-            description: "",
-            backgroundColor: .white,
-            cellType: .multiple),
-        TodayItem.init(
-            category: "HOLIDAYS",
-            title: "Travel on a Budget",
-            image: UIImage(named: "holiday")!,
-            description: "Find our all you needto know on how to travel without packing everything!",
-            backgroundColor: UIColor.init(red: 248.0 / 255.0, green: 248.0 / 255.0, blue: 185.0 / 255.0, alpha: 1),
-            cellType: .single)
-    ]
+    var items = [TodayItem]()
+    
+    var activityIndicatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .large)
+        aiv.color = .darkGray
+        aiv.startAnimating()
+        aiv.hidesWhenStopped = true
+        return aiv
+    }()
     
     var appFullscreenController: AppFullscreenController!
     
@@ -51,11 +37,10 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
-        */
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.centerInSuperview()
+        
+        fetchData()
         
         navigationController?.isNavigationBarHidden = true
         
@@ -63,6 +48,67 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
         collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
+    }
+    
+    fileprivate func fetchData() {
+        let dispatchGroup = DispatchGroup()
+        
+        var topGrossingGroup: AppGroup?
+        var gamesGroup: AppGroup?
+        
+        dispatchGroup.enter()
+        Service.shared.fetchTopGrossing { (appGroup, err) in
+            topGrossingGroup = appGroup
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        Service.shared.fetchGames { (appGroup, err) in
+            gamesGroup = appGroup
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("Finished fetching")
+            self.activityIndicatorView.stopAnimating()
+            
+            self.items = [
+                TodayItem.init(
+                    category: "Daily List",
+                    title: topGrossingGroup?.feed.title ?? "",
+                    image: UIImage(named: "garden")!,
+                    description: "",
+                    backgroundColor: .white,
+                    cellType: .multiple,
+                    apps: topGrossingGroup?.feed.results ?? []),
+                TodayItem.init(
+                    category: "LIFE HACK",
+                    title: "Utilizing your Time",
+                    image: UIImage(named: "garden")!,
+                    description: "All the tools and apps you need to intelligently organize your life the right way.",
+                    backgroundColor: .white,
+                    cellType: .single,
+                    apps: []),
+                TodayItem.init(
+                    category: "Daily List",
+                    title: gamesGroup?.feed.title ?? "",
+                    image: UIImage(named: "garden")!,
+                    description: "",
+                    backgroundColor: .white,
+                    cellType: .multiple,
+                    apps: gamesGroup?.feed.results ?? []),
+                TodayItem.init(
+                    category: "HOLIDAYS",
+                    title: "Travel on a Budget",
+                    image: UIImage(named: "holiday")!,
+                    description: "Find our all you needto know on how to travel without packing everything!",
+                    backgroundColor: UIColor.init(red: 248.0 / 255.0, green: 248.0 / 255.0, blue: 185.0 / 255.0, alpha: 1),
+                    cellType: .single,
+                    apps: [])
+            ]
+            
+            self.collectionView.reloadData()
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
