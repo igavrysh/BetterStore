@@ -19,19 +19,19 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     let items = [
         TodayItem.init(
-            category: "THE DAILY LIST",
-            title: "Test-Drive These CarPlay Apps",
-            image: UIImage(named: "garden")!,
-            description: "",
-            backgroundColor: .white,
-            cellType: .multiple),
-        TodayItem.init(
             category: "LIFE HACK",
             title: "Utilizing your Time",
             image: UIImage(named: "garden")!,
             description: "All the tools and apps you need to intelligently organize your life the right way.",
             backgroundColor: .white,
             cellType: .single),
+        TodayItem.init(
+            category: "THE DAILY LIST",
+            title: "Test-Drive These CarPlay Apps",
+            image: UIImage(named: "garden")!,
+            description: "",
+            backgroundColor: .white,
+            cellType: .multiple),
         TodayItem.init(
             category: "HOLIDAYS",
             title: "Travel on a Budget",
