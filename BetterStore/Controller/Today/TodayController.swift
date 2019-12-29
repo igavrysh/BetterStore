@@ -13,20 +13,32 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     var statingFrame: CGRect?
     
     fileprivate let cellId = "cellId"
+    fileprivate let multipleCellId = "multipleCellId"
+    
+    static let cellSize: CGFloat = 500
     
     let items = [
+        TodayItem.init(
+            category: "THE DAILY LIST",
+            title: "Test-Drive These CarPlay Apps",
+            image: UIImage(named: "garden")!,
+            description: "",
+            backgroundColor: .white,
+            cellType: .multiple),
         TodayItem.init(
             category: "LIFE HACK",
             title: "Utilizing your Time",
             image: UIImage(named: "garden")!,
             description: "All the tools and apps you need to intelligently organize your life the right way.",
-            backgroundColor: .white),
+            backgroundColor: .white,
+            cellType: .single),
         TodayItem.init(
             category: "HOLIDAYS",
             title: "Travel on a Budget",
             image: UIImage(named: "holiday")!,
             description: "Find our all you needto know on how to travel without packing everything!",
-            backgroundColor: UIColor.init(red: 248.0 / 255.0, green: 248.0 / 255.0, blue: 185.0 / 255.0, alpha: 1))
+            backgroundColor: UIColor.init(red: 248.0 / 255.0, green: 248.0 / 255.0, blue: 185.0 / 255.0, alpha: 1),
+            cellType: .single)
     ]
     
     var appFullscreenController: AppFullscreenController!
@@ -39,11 +51,18 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        */
+        
         navigationController?.isNavigationBarHidden = true
         
         collectionView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
-        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
+        collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -94,12 +113,12 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             // starts animation
             self.view.layoutIfNeeded()
             
-            guard let cell = appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullscreenHeaderCell else { return }
+            guard let cell = appFullscreenController.tableView.cellForRow(at: [0, 0])
+                as? AppFullscreenHeaderCell else { return }
             cell.todayCell.topConstraint.constant = 48
             cell.layoutIfNeeded()
           },
           completion: nil)
- 
     }
     
     fileprivate func handleFullscreenRemove() {
@@ -121,7 +140,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.heightConstraint?.constant = startingFrame.height
           
             self.view.layoutIfNeeded()
-            guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullscreenHeaderCell else { return }
+            guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0, 0])
+                as? AppFullscreenHeaderCell else { return }
             cell.todayCell.topConstraint.constant = 24
             cell.layoutIfNeeded()
         },
@@ -141,8 +161,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
       cellForItemAt
       indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
-        cell.todayItem = items[indexPath.item]
+        let cellId = items[indexPath.item].cellType.rawValue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        
+        if let cell = cell as? BaseTodayCell {
+            cell.todayItem = items[indexPath.item]
+        }
+        
         return cell
     }
     
@@ -151,7 +176,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
       layout collectionViewLayout: UICollectionViewLayout,
       sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return .init(width: view.frame.width - 64, height: 450)
+        return .init(width: view.frame.width - 64, height: TodayController.cellSize)
     }
     
     func collectionView(
