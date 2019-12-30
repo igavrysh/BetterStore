@@ -23,7 +23,7 @@ class SearchResultCell: UICollectionViewCell {
                 return
             }
             
-            if (screenshotUrls.count ?? 0) > 0 {
+            if screenshotUrls.count > 0 {
                screenshot1ImageView.sd_setImage(with: URL(string: screenshotUrls[0]))
             }
 
@@ -33,7 +33,6 @@ class SearchResultCell: UICollectionViewCell {
 
             if screenshotUrls.count > 2 {
                screenshot3ImageView.sd_setImage(with: URL(string: screenshotUrls[2]))
-
             }
         }
     }
