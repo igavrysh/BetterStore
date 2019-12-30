@@ -45,6 +45,9 @@
 		D5EA79E623B828E500E868E5 /* TodayMultipleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EA79E523B828E500E868E5 /* TodayMultipleViewController.swift */; };
 		D5EA79E823B8295D00E868E5 /* MultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EA79E723B8295D00E868E5 /* MultipleAppCell.swift */; };
 		D5EA79EA23B911B100E868E5 /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EA79E923B911B100E868E5 /* BackEnabledNavigationController.swift */; };
+		D5EA79ED23B987D100E868E5 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EA79EC23B987D100E868E5 /* MusicController.swift */; };
+		D5EA79F023B989A000E868E5 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EA79EF23B989A000E868E5 /* TrackCell.swift */; };
+		D5EA79F223B98C6B00E868E5 /* MusicLoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EA79F123B98C6B00E868E5 /* MusicLoadingFooter.swift */; };
 		D5FE330E23B450AC00B73716 /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE330D23B450AC00B73716 /* SocialApp.swift */; };
 		D5FE331123B47D1300B73716 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE331023B47D1300B73716 /* HorizontalSnappingController.swift */; };
 		D5FE331323B4831100B73716 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FE331223B4831100B73716 /* BetterSnappingLayout.swift */; };
@@ -125,6 +128,9 @@
 		D5EA79E523B828E500E868E5 /* TodayMultipleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleViewController.swift; sourceTree = "<group>"; };
 		D5EA79E723B8295D00E868E5 /* MultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCell.swift; sourceTree = "<group>"; };
 		D5EA79E923B911B100E868E5 /* BackEnabledNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnabledNavigationController.swift; sourceTree = "<group>"; };
+		D5EA79EC23B987D100E868E5 /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
+		D5EA79EF23B989A000E868E5 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		D5EA79F123B98C6B00E868E5 /* MusicLoadingFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLoadingFooter.swift; sourceTree = "<group>"; };
 		D5FE330D23B450AC00B73716 /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		D5FE331023B47D1300B73716 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		D5FE331223B4831100B73716 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
@@ -220,7 +226,6 @@
 				D58D841123B292DE004B730C /* Helpers */,
 				D58D840E23B28166004B730C /* Views */,
 				D58D840B23B27D1B004B730C /* Controller */,
-				D58D83D923B26CB7004B730C /* AppDelegate.swift */,
 				D58D83DB23B26CB7004B730C /* SceneDelegate.swift */,
 				D58D83DD23B26CB7004B730C /* ViewController.swift */,
 				D58D83E223B26CB7004B730C /* Assets.xcassets */,
@@ -251,12 +256,14 @@
 		D58D840B23B27D1B004B730C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D5EA79EB23B987BB00E868E5 /* Music */,
 				D5EA79D323B5A42E00E868E5 /* Today */,
 				D5FE330F23B47CF200B73716 /* Search */,
 				D58D841C23B3410A004B730C /* Apps */,
 				D58D840923B26D2B004B730C /* BaseTabBarController.swift */,
 				D58D841F23B3422D004B730C /* BaseListController.swift */,
 				D5FE331023B47D1300B73716 /* HorizontalSnappingController.swift */,
+				D58D83D923B26CB7004B730C /* AppDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,6 +271,7 @@
 		D58D840E23B28166004B730C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D5EA79EE23B9899400E868E5 /* Music */,
 				D5EA79D623B5A53E00E868E5 /* Today */,
 				D5FE332423B4D54000B73716 /* Search */,
 				D58D842123B34443004B730C /* Apps */,
@@ -347,6 +355,23 @@
 				D5EA79E723B8295D00E868E5 /* MultipleAppCell.swift */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		D5EA79EB23B987BB00E868E5 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				D5EA79EC23B987D100E868E5 /* MusicController.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		D5EA79EE23B9899400E868E5 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				D5EA79EF23B989A000E868E5 /* TrackCell.swift */,
+				D5EA79F123B98C6B00E868E5 /* MusicLoadingFooter.swift */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		D5FE330F23B47CF200B73716 /* Search */ = {
@@ -633,6 +658,7 @@
 				D5EA79E423B8275B00E868E5 /* BaseTodayCell.swift in Sources */,
 				D58D840D23B27D46004B730C /* AppsSearchController.swift in Sources */,
 				D5EA79E623B828E500E868E5 /* TodayMultipleViewController.swift in Sources */,
+				D5EA79F223B98C6B00E868E5 /* MusicLoadingFooter.swift in Sources */,
 				D58D840A23B26D2B004B730C /* BaseTabBarController.swift in Sources */,
 				D5EA79D823B5A54700E868E5 /* TodayCell.swift in Sources */,
 				D58D83DA23B26CB7004B730C /* AppDelegate.swift in Sources */,
@@ -648,8 +674,10 @@
 				D58D841523B2A425004B730C /* VerticalStackView.swift in Sources */,
 				D5FE331623B4911800B73716 /* AppDetailController.swift in Sources */,
 				D5EA79DA23B5F59D00E868E5 /* AppFullscreenController.swift in Sources */,
+				D5EA79ED23B987D100E868E5 /* MusicController.swift in Sources */,
 				D58D841B23B2B460004B730C /* Service.swift in Sources */,
 				D58D842D23B3CF7E004B730C /* AppsHeaderHorizontalController.swift in Sources */,
+				D5EA79F023B989A000E868E5 /* TrackCell.swift in Sources */,
 				D58D842B23B3CE58004B730C /* AppsPageHeader.swift in Sources */,
 				D58D841323B29301004B730C /* UIView+Layout.swift in Sources */,
 				D5FE332123B4CA2700B73716 /* ReviewsController.swift in Sources */,

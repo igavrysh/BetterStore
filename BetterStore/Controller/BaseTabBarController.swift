@@ -17,6 +17,7 @@ class BaseTabBarController: UITabBarController {
         //tabBar.barTintColor = .green
         
         viewControllers = [
+            createNavController(viewController: MusicController(), title: "Music", imageName: "music"),
             createNavController(viewController: TodayController(), title: "Today", imageName: "today"),
             createNavController(viewController: AppsPageController(), title: "Apps", imageName: "apps"),
             createNavController(viewController: AppsSearchController(), title: "Search", imageName: "search")
